@@ -6,3 +6,11 @@ export const enum CallbackType {
 export type Callback<D> = D extends null ?
     (type: CallbackType) => unknown :
     (type: CallbackType, data: D) => unknown;
+
+
+export type ExitFunction =
+    ((state: 'reinjected' | 'already_injected' | 'injected') => Promise<unknown>)
+    & ((state: 'error', error: Error) => Promise<unknown>)
+    & ((state: 'uninjected') => Promise<unknown>);
+
+export type WriteFunction = ((desktopCorePath: string) => Promise<unknown>);

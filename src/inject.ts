@@ -1,22 +1,19 @@
+import type { ExitFunction, WriteFunction } from '.';
 import { readFile, writeFile } from 'fs/promises';
 import { join } from 'path';
-
-type ExitFunction =
-    ((state: 'reinjected' | 'already_injected' | 'injected') => Promise<unknown>)
-    & ((state: 'error', error: Error) => Promise<unknown>);
 
 // eslint-disable-next-line valid-jsdoc
 /**
  * @param {string} desktopCorePath - The path to Discord's desktop core (discord_desktop_core)
  * @param {string} injectString - The string to inject before we invoke the default core.asar
- * @param {((desktopCorePath: string) => Promise<unknown>)} writeFn - Function to invoke before injecting to the index file.
+ * @param {WriteFunction} writeFn - Function to invoke before injecting to the index file.
  * @param {ExitFunction} exitFn - Function to handle exiting.
  * @returns {Promise<void>}
  */
 export default async function inject(
     desktopCorePath: string,
     injectString: string,
-    writeFn?: (desktopCorePath: string) => Promise<unknown>,
+    writeFn?: WriteFunction,
     exitFn?: ExitFunction
 ): Promise<void> {
     const coreFile = await readFile(join(desktopCorePath, 'index.js'), { encoding: 'utf-8' });
