@@ -14,3 +14,7 @@ export type ExitFunction =
     & ((state: 'uninjected') => Promise<unknown>);
 
 export type WriteFunction = ((desktopCorePath: string) => Promise<unknown>);
+
+export { default as inject } from './inject';
+export { default as uninject } from './uninject';
+export * from './utils';
