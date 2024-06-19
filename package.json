@@ -1,0 +1,34 @@
+{
+  "private": true,
+  "name": "@pomcord/injector-api",
+  "version": "0.0.1",
+  "description": "simplistic api for injecting into discord",
+  "license": "PolyForm Strict License 1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pomcord/pomcord.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pomcord/pomcord/issues"
+  },
+  "engines": {
+    "node": ">=18.15.0",
+    "npm": ">=9.5.0"
+  },
+  "scripts": {
+    "check": "npm run lint && npm run build",
+    "clean": "rimraf dist",
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "lint": "eslint . --ext .ts,.tsx",
+    "lint:fix": "eslint . --ext .ts,.tsx --fix"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^7.13.0",
+    "@typescript-eslint/parser": "^7.13.0",
+    "eslint": "^8.57.0",
+    "rimraf": "^5.0.7",
+    "tsx": "^4.15.5",
+    "typescript": "^5.4.5"
+  }
+}
