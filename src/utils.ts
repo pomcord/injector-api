@@ -30,7 +30,8 @@ export async function getDiscordPath(branch: DiscordBranches[keyof DiscordBranch
             // Discord names on Windows are case sensitive
             // i.e. Discord, DiscordCanary, etc.
 
-            const capitlizedBranch = `${ actualBranch[0].toUpperCase() }${ actualBranch.substring(1, actualBranch.length) }`;
+            let capitlizedBranch;
+            if(actualBranch) capitlizedBranch = `${ actualBranch[0].toUpperCase() }${ actualBranch.substring(1, actualBranch.length) }`;
             outDir = join(process.env.LOCALAPPDATA!, `Discord${ capitlizedBranch }`);
             break;
         }
