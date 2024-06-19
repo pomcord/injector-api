@@ -4,28 +4,18 @@
         "module": "ESNext",
         "moduleResolution": "Node",
         "lib": [
-            "DOM",
-            "DOM.Iterable",
             "ESNext"
         ],
         "strict": true,
-        "jsx": "react",
-        "jsxFactory": "pomcord.React.createElement",
         "skipDefaultLibCheck": true,
         "skipLibCheck": true,
         "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,
         "baseUrl": ".",
-        "resolveJsonModule": true,
-        "paths": {
-            // etc
-        },
+        "outDir": "dist",
+        "declaration": true
     },
     "include": [
         "src/**/*",
-        "extension/**/*",
-        // this is fine because we use esbuild and not TSC therefore won't actually get built
-        "scripts/**/*",
-        "scripts/**/*.mts",
     ]
 }

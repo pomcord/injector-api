@@ -6,16 +6,19 @@
   "license": "PolyForm Strict License 1.0.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pomcord/pomcord.git"
+    "url": "git+https://github.com/pomcord/injector-api.git"
   },
   "bugs": {
-    "url": "https://github.com/pomcord/pomcord/issues"
+    "url": "https://github.com/pomcord/injector-api/issues"
   },
   "engines": {
     "node": ">=18.15.0",
     "npm": ">=9.5.0"
   },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
+    "install": "tsc",
     "check": "npm run lint && npm run build",
     "clean": "rimraf dist",
     "build": "tsc",
@@ -23,12 +26,12 @@
     "lint": "eslint . --ext .ts,.tsx",
     "lint:fix": "eslint . --ext .ts,.tsx --fix"
   },
+  "dependencies": {
+    "typescript": "^5.4.5"
+  },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^7.13.0",
     "@typescript-eslint/parser": "^7.13.0",
-    "eslint": "^8.57.0",
-    "rimraf": "^5.0.7",
-    "tsx": "^4.15.5",
-    "typescript": "^5.4.5"
+    "eslint": "^8.57.0"
   }
 }
