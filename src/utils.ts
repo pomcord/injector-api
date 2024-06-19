@@ -32,7 +32,7 @@ export async function getDiscordPath(branch: DiscordBranches[keyof DiscordBranch
 
             let capitlizedBranch;
             if(actualBranch) capitlizedBranch = `${ actualBranch[0].toUpperCase() }${ actualBranch.substring(1, actualBranch.length) }`;
-            outDir = join(process.env.LOCALAPPDATA!, `Discord${ capitlizedBranch }`);
+            outDir = join(process.env.LOCALAPPDATA!, `Discord${ capitlizedBranch || '' }`);
             break;
         }
         case 'darwin': {
