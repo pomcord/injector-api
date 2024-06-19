@@ -11,14 +11,16 @@ export const exists = async (...args: Parameters<existsSync>): Promise<
 > => new Promise((r) => r(existsSync(...args)));
 
 
-export enum DiscordBranches {
-    STABLE = 'stable',
-    CANARY = 'canary',
-    PTB = 'ptb',
-    DEVELOPMENT = 'development'
-}
 
-export async function getDiscordPath(branch: DiscordBranches): Promise<string | null> {
+export const DiscordBranches = {
+    STABLE: 'stable',
+    CANARY: 'canary',
+    PTB: 'ptb',
+    DEVELOPMENT: 'development'
+} as const;
+export type DiscordBranches = typeof DiscordBranches;
+
+export async function getDiscordPath(branch: DiscordBranches[keyof DiscordBranches]): Promise<string | null> {
     const actualBranch = branch === DiscordBranches.STABLE ? '' : branch;
     let outDir: string;
 
