@@ -6,6 +6,12 @@
         "lib": [
             "ESNext"
         ],
+        "types": [
+            "node"
+        ],
+        "typeRoots": [
+            "./node_modules/@types"
+        ],
         "strict": true,
         "skipDefaultLibCheck": true,
         "skipLibCheck": true,
