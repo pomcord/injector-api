@@ -7,7 +7,8 @@ export default async function uninject(
     exitFn: ExitFunction,
     cleanFn?: WriteFunction
 ): Promise<void> {
-    const coreFile = await readFile(join(desktopCorePath, 'index.js'), { encoding: 'utf-8' });
+    const coreFilePath = join(desktopCorePath, 'index.js');
+    const coreFile = await readFile(coreFilePath, { encoding: 'utf-8' });
     const splitCore = coreFile.split('\n');
 
     // we aren't injected.
@@ -16,6 +17,7 @@ export default async function uninject(
     cleanFn?.(desktopCorePath);
 
     const withoutInserted = splitCore.splice(splitCore.length - 1, 1);
-    await writeFile(coreFile, withoutInserted);
+
+    await writeFile(coreFilePath, withoutInserted);
     void exitFn('uninjected');
 }
