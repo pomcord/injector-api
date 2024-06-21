@@ -16,6 +16,6 @@ export default async function uninject(
     cleanFn?.(desktopCorePath);
 
     const withoutInserted = splitCore.splice(splitCore.length - 1, 1);
-    writeFile(coreFile, withoutInserted);
+    await writeFile(coreFile, withoutInserted);
     void exitFn('uninjected');
 }
