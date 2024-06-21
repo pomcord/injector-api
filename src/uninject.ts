@@ -11,7 +11,7 @@ export default async function uninject(
     const splitCore = coreFile.split('\n');
 
     // we aren't injected.
-    if(splitCore.length !== 1) return void exitFn('uninjected');
+    if(splitCore.length === 1) return void exitFn('wasnt_injected');
 
     cleanFn?.(desktopCorePath);
 
